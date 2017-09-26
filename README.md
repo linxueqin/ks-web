@@ -6,6 +6,9 @@
 - 如果服务正常返回,返回的格式为`{code:0, data:...}`
 - 如果服务出现了异常,返回格式为`{code:1, msg:'异常信息'}`
 - 如果调用了异常编码设置`handlerManager.registExceptionMapping(SecurityException.class, 300, "权限方面的异常");`,出现了相应的类型异常将返回`{code:300, msg: '异常信息'}`
+- 调用`void setInvokeHandlerType(Class<? extends InvokeHandler> invokeHandlerType);` 更改默认处理类型`Object fetch(HttpServletRequest request, HttpServletResponse response, Class<?> type) throws Exception`方法进行处理包装
+- 调用`void addWrapType(Class<?> type);`注册包装类型,在参数中如果存在这个类型的参数,将会交给以上处理类型的
+
 
 提供服务的类
 ```java
