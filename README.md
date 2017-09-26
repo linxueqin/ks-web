@@ -3,7 +3,7 @@
 - 如果你正在做Java Web 开发, 你可以尝试使用ks-web
 - 支持复杂多参数, 异常与编码转换处理,参数绑定 等......
 
-######提供服务的类
+###提供服务的类
 ```java
 package ks.web;
 
@@ -24,7 +24,7 @@ public class DemoController {
 	}
 }
 ```
-######示例代码将使用Jetty做为服务器
+###示例代码将使用Jetty做为服务器
 ```java
 package ks.web;
 
@@ -77,3 +77,6 @@ public class Main {
 返回 `{ "code": 0}`
 访问 `http://127.0.0.1/api/demo/login?userName=admin`
 返回 `{ "code": 300,"msg": "管理员禁止登录"}`
+
+如果不增加 `handlerManager.registExceptionMapping(SecurityException.class, 300, "权限方面的异常");`  
+`http://127.0.0.1/api/demo/login?userName=admin` 返回的异常编码是 `{ "code": 1,"msg": "管理员禁止登录"}`
