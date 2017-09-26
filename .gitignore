@@ -1,3 +1,9 @@
+/target/
+/.classpath
+/.gitignore
+/.settings
+/.project
+
 # Compiled class file
 *.class
 
